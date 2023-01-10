@@ -11,7 +11,7 @@ import { useCountAppointment } from 'src/actions/appointment';
 import { useCounselorAdd, useCountCounselor } from 'src/actions/counselor';
 import { Formik } from 'formik';
 import { ToastContainer } from 'react-toastify';
-import { mobiletabs } from 'src/data/mobileTabs';
+import { mobiletabs } from 'src/data/mobiletabs';
 
 export default function Dashboard() {
   const router = useRouter();
