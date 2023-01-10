@@ -106,7 +106,8 @@ export default function AccountInformation() {
                 {(form) => (
                   <form onSubmit={form.handleSubmit}>
                     <p className="mb-4 pt-10 mx-4">
-                      {t1("content.accountInfo.profilePhoto")}
+                      {/* {t1("content.accountInfo.profilePhoto")} */}
+                    Profile Photo
                     </p>
                     <div className="flex flex-row items-center mb-5 mx-4">  
                       <img className="w-12 h-12 rounded-full shadow-lg" src={data?.data.profile.profile_img ? 'https://www.mydesa.my/v2/'+data?.data.profile.profile_img : 'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg'}/>
@@ -128,7 +129,8 @@ export default function AccountInformation() {
                         <label
                           htmlFor="name"
                           className="block mb-2 text-xs font-semibold text-gray-900 dark:text-gray-300">
-                          {t1("content.accountInfo.name")}
+                          {/* {t1("content.accountInfo.name")} */}
+                          Name
                         </label>
                         <input
                           {...form}
@@ -139,7 +141,7 @@ export default function AccountInformation() {
                           type="name"
                           value={form.values.name}
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                          placeholder={t1("content.accountInfo.name")}
+                          placeholder="Name"
                           required
                         />
                       </div>
@@ -147,14 +149,15 @@ export default function AccountInformation() {
                         <label
                           htmlFor="email"
                           className="block mb-2 text-xs font-semibold text-gray-900 dark:text-gray-300">
-                          {t1("content.accountInfo.email")}
+                          {/* {t1("content.accountInfo.email")} */}
+                          Email
                         </label>
                         <input
                           type="email"
                           id="email"
                           name="email"
                           value={form.values.email}
-                          placeholder={t1("content.accountInfo.email")}
+                          placeholder="Email"
                           className="bg-gray-50 border border-gray-300 text-gray-900 text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                           required
                         />
@@ -220,7 +223,8 @@ export default function AccountInformation() {
                           htmlFor="phone"
                           className="block mb-2 text-xs font-semibold text-gray-900 dark:text-gray-300">
                           {" "}
-                          {t1("content.accountInfo.mobile")}
+                          {/* {t1("content.accountInfo.mobile")} */}
+                          Mobile No
                         </label>
                         <div className="flex">
                           <span className="inline-flex items-center px-3 text-xs text-gray-900 bg-gray-200 rounded-l-md border border-r-0 border-gray-300 dark:bg-gray-600 dark:text-gray-400 dark:border-gray-600">
@@ -280,7 +284,10 @@ export default function AccountInformation() {
 
                     <div className="flex">
                       <button className="w-full h-10 mt-4  m-2 justify-center  py-2 px-3 text-xs font-semibold text-center text-white bg-primary rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-primary dark:hover:bg-primary dark:focus:ring-blue-800">
-                        <p className="text-center">{t1("content.save")}</p>
+                        <p className="text-center">
+                          {/* {t1("content.save")} */}
+                          Save
+                        </p>
                       </button>
                     </div>
                   </form>
