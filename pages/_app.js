@@ -28,7 +28,7 @@ import {
   sidebar_pages,
 } from 'src/data/sidebar.js';
 import Link from 'next/link';
-import { mobiletabs } from 'src/data/mobiletabs';
+import { mobiletabs } from 'src/data/mobileTabs';
 
 const queryClient = new QueryClient();
 

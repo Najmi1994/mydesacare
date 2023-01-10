@@ -1,5 +1,5 @@
 /* eslint-disable react/react-in-jsx-scope */
-export const mobileTabs = [
+export const mobiletabs = [
   {
     name: 'Dashboard',
     icons: (

@@ -37,7 +37,7 @@ import Sidebar2 from 'src/components/Sidebar/Sidebar2';
 import FooterAdmin from 'src/components/Footers/FooterAdmin.js';
 import { flex } from 'tailwindcss/defaultTheme';
 import { useRouter } from 'next/router';
-import { mobiletabs } from 'src/data/mobiletabs';
+import { mobiletabs } from 'src/data/mobileTabs';
 
 const drawerWidthOpen = 240;
 const paddingIconButton = 10;
