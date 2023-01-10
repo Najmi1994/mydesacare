@@ -18,7 +18,7 @@ const useCountCounselor = () => {
     return useQuery(
         "count_counselor",
         () => counsellorCount(),
-        { cacheTime: 0 }
+        { refetchOnWindowFocus: false }
     );
 };
 

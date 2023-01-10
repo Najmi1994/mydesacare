@@ -53,7 +53,7 @@ const useProfile = (status) => {
   return useQuery(
     "profile",
     () => profileView(status),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 

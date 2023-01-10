@@ -17,7 +17,7 @@ const useClient = (status,data) => {
     return useQuery(
       ["client",data],
       () => clientAll(status,data),
-      { cacheTime: 0 }
+      { refetchOnWindowFocus: false }
     );
   };
   

@@ -22,7 +22,7 @@ const useAppointment = (status,data) => {
   return useQuery(
     ["appointment",data],
     () => appointmenByStatus(status,data),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 
@@ -43,7 +43,7 @@ const useAppointmentAdmin = (status,data) => {
   return useQuery(
     ["appointment",data],
     () => appointmenByAdmin(status,data),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 
@@ -64,7 +64,7 @@ const useCountAppointment = () => {
   return useQuery(
     "dashboard_count",
     () => countAppointment(),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 
@@ -83,7 +83,7 @@ const useSessionAll = (appointments_id, $data) => {
   return useQuery(
     ["session_all", $data],
     () => SessionAll(appointments_id),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 
@@ -169,7 +169,7 @@ const useAllProfile = () => {
   return useQuery(
     "profileAll",
     () => allProfile(),
-    { cacheTime: 0 }
+    { refetchOnWindowFocus: false }
   );
 };
 
