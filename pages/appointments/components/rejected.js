@@ -29,7 +29,7 @@ export default function Rejected() {
             },
             {
                 name: <div className='w-full text-center font-bold'>Reason</div>,
-                cell: row =>  <div className='w-full text-center font-bold'>{row.reason_reject}</div>,
+                cell: row =>  <div className='w-full text-center font-bold'>{row.reason}</div>,
             },
     ];
 
@@ -79,7 +79,7 @@ export default function Rejected() {
                         className='w-full'
                         columns={columns} 
                         data={data?.data}
-                        progressPending={isLoading} 
+                        progressPending={isFetching} 
                         highlightOnHover
                         pagination
                         paginationServer

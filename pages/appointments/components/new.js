@@ -19,7 +19,7 @@ export default function New() {
   const [accept, setAccept] = useState(false);
   const [dataBooking, setDataBooking] = useState([]);
 
-  const { data, isLoading, isSuccess, isFetching, isError, error } = useAppointment('1',page);
+  const { data, isLoading, isSuccess, isFetching, isError, error, refetch } = useAppointment('1',page);
   
   const columns = [
     {
@@ -188,7 +188,7 @@ export default function New() {
                 className='w-full'
                 columns={columns} 
                 data={data?.data}
-                progressPending={isLoading} 
+                progressPending={isFetching} 
                 highlightOnHover
                 pagination
                 paginationServer
@@ -310,7 +310,7 @@ export default function New() {
                 <div className='bg-black bg-opacity-50 fixed inset-0 z-20'></div>
               </>
             ) : (
-              <ActionModal onHandlerModal={onHandlerModal} dataBooking={dataBooking} />
+              <ActionModal onHandlerModal={onHandlerModal} dataBooking={dataBooking} refetch={refetch}/>
             )}
           </>
         ) : (

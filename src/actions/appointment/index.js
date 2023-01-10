@@ -1,6 +1,6 @@
 import { data } from "autoprefixer";
 import { useRouter } from "next/router";
-import { useMutation, useQuery } from "react-query";
+import { useMutation, useQuery, useQueryClient } from "react-query";
 import { toast } from "react-toastify";
 import { useRecoilState } from "recoil";
 import { baseUrl } from "src/config";
@@ -100,11 +100,14 @@ const SessionAll = async (data) => {
 
 const useBookingUpdate = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
+  
   return useMutation(updateBooking, {
     onSuccess: (data) => {
       console.log('success', data);
        if(data?.data.response.response_code == '200'){
         toast(data?.data.response.response_message);
+        queryClient.refetchQueries('appointment');
         // router.push('/settings');
         // console.log('success', data?.data.response.response_message);
       }else{
@@ -134,11 +137,14 @@ const updateBooking = async (data_value) => {
 
 const useBookingInvitation = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
+
   return useMutation(updateBookingInvitation , {
     onSuccess: (data) => {
       console.log('success', data);
        if(data?.data.response.response_code == '200'){
         toast(data?.data.response.response_message);
+        queryClient.refetchQueries('appointment');
         // router.push('/settings');
         // console.log('success', data?.data.response.response_message);
       }else{

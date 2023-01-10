@@ -23,8 +23,10 @@ export default function ActionModal(props) {
     // return false;
 
     await mutate(values);
+    // props.refetch();
     props.onHandlerModal(false, []);
   };
+  
 
 
   return (

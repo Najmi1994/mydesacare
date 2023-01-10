@@ -37,8 +37,8 @@ export default function ActionDone(props) {
                     <div>
                       <ol class='relative border-l border-gray-200 dark:border-gray-700'>
                         {data?.steps.map((step, index) => (
-                            <li class='mb-10 ml-4'>
-                              <span class='flex absolute -left-3 justify-center items-center w-6 h-6 text-white bg-purple-800 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900'>
+                            <li class='mb-10 ml-4' key={index}>
+                              <span class='flex absolute -left-3 justify-center items-center w-6 h-6 text-white bg-purple-800 rounded-full ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900 mt-8'>
                                 {step.label}
                               </span>
                               <time class='mb-1 ml-2 text-sm font-normal leading-none text-gray-400 dark:text-gray-500'>

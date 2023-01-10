@@ -224,7 +224,7 @@ export default function Accepted() {
                         className='w-full'
                         columns={columns} 
                         data={data?.data}
-                        progressPending={isLoading} 
+                        progressPending={isFetching} 
                         highlightOnHover
                         pagination
                         paginationServer

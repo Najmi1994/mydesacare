@@ -185,7 +185,7 @@ export default function Dashboard() {
                     </div>
                   )}
 
-                  {appoint?.appointment.value_appointment[2] ? (
+                  {appoint?.appointment.value_appointment[3] ? (
                     <div className='text-xs px-6 py-4 m-0'>
                       <div className='flex justify-between mb-4'>
                         <span>
@@ -283,8 +283,8 @@ export default function Dashboard() {
             <div className='md:block md:w-1/2 my-2 mx-2 justify-center bg-white rounded-md text-center'>
               <div className='p-4 flex justify-between gap-2'>
                 <div className='flex items-center text-sm'>
-                  <span className='flex items-center justify-center w-4 h-4 p-4 rounded-full bg-red-200'>
-                    <i className='text-red-600 fas fa-exclamation-triangle'></i>
+                  <span className='flex items-center justify-center w-4 h-4 p-4 rounded-full bg-green-200'>
+                  <i className='text-red-600 fas fa-exclamation-triangle'></i>
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
@@ -304,6 +304,20 @@ export default function Dashboard() {
                 <div className='flex flex-col text-right text-sm'>
                   <div className='font-bold'>{appoint?.count?.completed ? appoint.count?.completed  : 0}</div>
                   <div className='text-xs'> Completed</div>
+                </div>
+              </div>
+            </div>
+
+            <div className='md:block md:w-1/2 my-2 mx-2 justify-center bg-white rounded-md text-center'>
+              <div className='p-4 flex justify-between gap-2'>
+                <div className='flex items-center text-sm'>
+                  <span className='flex items-center justify-center w-4 h-4 p-4 rounded-full bg-red-200'>
+                    <i className='text-red-600 fas fa-exclamation-triangle'></i>
+                  </span>
+                </div>
+                <div className='flex flex-col text-right text-sm'>
+                  <div className='font-bold'>{appoint?.count?.reject ? appoint.count?.reject  : 0}</div>
+                  <div className='text-xs'> Reject</div>
                 </div>
               </div>
             </div>
