@@ -246,7 +246,7 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
-                  <div className='font-bold'>{appoint.count?.new}</div>
+                  <div className='font-bold'>{appoint.count?.new ? appoint.count?.new  : 0}</div>
                   <div className='text-xs'> New Appointments</div>
                 </div>
               </div>
@@ -260,7 +260,7 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
-                  <div className='font-bold'>{appoint?.count?.accept}</div>
+                  <div className='font-bold'>{appoint?.count?.accept ? appoint.count?.accept  : 0}</div>
                   <div className='text-xs'> Accepted</div>
                 </div>
               </div>
@@ -274,7 +274,7 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
-                  <div className='font-bold'>{appoint?.count?.in_progress}</div>
+                  <div className='font-bold'>{appoint?.count?.in_progress ? appoint.count?.in_progress  : 0}</div>
                   <div className='text-xs'> In-progress</div>
                 </div>
               </div>
@@ -288,7 +288,7 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
-                  <div className='font-bold'>{appoint?.count?.cancel}</div>
+                  <div className='font-bold'>{appoint?.count?.cancel ? appoint.count?.cancel  : 0}</div>
                   <div className='text-xs'> Cancelled</div>
                 </div>
               </div>
@@ -302,7 +302,7 @@ export default function Dashboard() {
                   </span>
                 </div>
                 <div className='flex flex-col text-right text-sm'>
-                  <div className='font-bold'>{appoint?.count?.completed}</div>
+                  <div className='font-bold'>{appoint?.count?.completed ? appoint.count?.completed  : 0}</div>
                   <div className='text-xs'> Completed</div>
                 </div>
               </div>
