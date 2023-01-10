@@ -276,12 +276,12 @@ export default function AccountInformation() {
                             value={form.values.expertise}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option >Select Expertise</option>
-                            <option value="Peribadi">Peribadi</option>
-                            <option value="Keluarga">Keluarga</option>
-                            <option value="Kerjaya">Kerjaya</option>
-                            <option value="Kesihatan mental">Kesihatan mental</option>
-                            <option value="Ketagihan">Ketagihan</option>
-                            <option value="Jenayah">Jenayah</option>
+                            <option value="Personal">Personal</option>
+                            <option value="Family">Family</option>
+                            <option value="Career">Career</option>
+                            <option value="Mental Health">Mental Health</option>
+                            <option value="Addiction">Addiction</option>
+                            <option value="Crime">Crime</option>
                           </select>
                         </div>
                       </div></div>
