@@ -191,6 +191,7 @@ export default function AccountInformation() {
                             onChange={form.handleChange}
                             value={form.values.marital_status}
                             className="w-full p-2.5 my-1 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option >Select Mrital Status</option>
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
                             <option value="Divorced">Divorced</option>
@@ -256,6 +257,7 @@ export default function AccountInformation() {
                             onChange={form.handleChange}
                             value={form.values.experience}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option >Select Year of Experience</option>
                             <option value="Beginer">1-3 Years</option>
                             <option value="Ameatur">1-6 Years</option>
                             <option value="Good">1-10 Years</option>
@@ -273,6 +275,7 @@ export default function AccountInformation() {
                             onChange={form.handleChange}
                             value={form.values.expertise}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option >Select Expertise</option>
                             <option value="Alcohol">Alcohol</option>
                             <option value="Anger management">Anger management</option>
                             <option value="Anxiety/stress">Anxiety/stress</option>
