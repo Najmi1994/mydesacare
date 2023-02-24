@@ -1,13 +1,29 @@
 /* eslint-disable react/jsx-no-target-blank */
 import Admin2 from 'src/layouts/Admin2';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { createPopper } from '@popperjs/core';
 import Link from 'next/link';
 
+import { useProfile } from "src/actions/settings";
+
 export default function Reports() {
   const [showModal, setShowModal] = useState(false);
+
+  const { data:profile, isFetching:proFetch } = useProfile();
+
+  function checking_profile(data){
+    if(!data.data.profile.age || !data.data.profile.phone_no || !data.data.profile.marital_status || !data.data.profile.expertise || !data.data.profile.experience){
+      window.location.href = '/settings';
+    }
+  }
+
+  useEffect(() => {
+    if(!proFetch){
+      checking_profile(profile);
+    }
+  })
 
   // dropdown props
   const [dropdownPopoverShow, setDropdownPopoverShow] = React.useState(false);

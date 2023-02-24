@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useAllProfile, useBookingUpdate } from 'src/actions/appointment';
 import Datetime from 'react-datetime';
 import "react-datetime/css/react-datetime.css";
+import Link from 'next/link';
 
 
 export default function ActionModal(props) {
@@ -11,7 +12,7 @@ export default function ActionModal(props) {
     const { mutate, error, isError, isLoading: isButtonLoading } = useBookingUpdate();
 
     const { data:allProfile } = useAllProfile();
-
+console.log('prpo',props);
     const timeConstraints = {
         minutes: {
         step: 30
@@ -52,37 +53,20 @@ export default function ActionModal(props) {
                             initialValues={{
                                 appointments_id: props.dataBooking.appointments_id,
                                 reason: '',
-                                new_counsellor:'',
                                 status: '6'
                             }}
                             onSubmit={onSubmit}>
                             {(form) =>(
                                 <form className='space-y-6' onSubmit={form.handleSubmit}>
                                     <div>
-                                    <label for='reason' class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'>
-                                        Select an option
-                                    </label>
-                                    <select id='reason' value={form.values.reason} onChange={form.handleChange} onBlur={form.handleBlur} name="reason" class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-                                        <option selected>Choose Your reason</option>
-                                        <option value='1'>Not available</option>
-                                        <option value='2'>Something went wrong </option>
-                                        <option value='3'>Assign new counselor</option>
-                                    </select>
+                                        <div>
+                                            <label className='text-xs'>Reason</label>
+                                            <input type='text' name='reason' id='reason' value={form.values.reason} onChange={form.handleChange} onBlur={form.handleBlur} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'/>
+                                        </div>
+                                    
                                     </div>
-                                    <div>
-                                    <label for='reason' class='block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400'>
-                                        Assign to new counselor
-                                    </label>
-                                    <select name="new_counsellor" value={form.values.new_counsellor} onChange={form.handleChange} onBlur={form.handleBlur} id='new_counsellor' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>
-                                        <option selected>Choose new counselor</option>
-                                        {allProfile?.profile.map((allProfile, index) => (
-                                            <option value={allProfile.id}>{allProfile.name}</option>
-                                        ))}
-                                    </select>
-                                    </div>
-
                                     <button type="submit" className='w-full bg-red-400 text-white border font-medium rounded-lg text-sm px-4 py-1 text-center'>
-                                    Reject & Assign
+                                        Reject & Assign
                                     </button>
                                 </form>
                             )}
@@ -109,51 +93,50 @@ export default function ActionModal(props) {
                         <h3 className='mb-4 text-xl font-medium text-gray-900'>
                             Client Information
                         </h3>
+                        <div className='flex justify-between border-b py-2'>
+                            <div className='flex items-center gap-2 mb-2'>
+                            <Link href=''>
+                                <span className='bg-gray-200 flex items-center justify-center border w-10 h-10  rounded-full'>
+                                <img
+                                    className='rounded-full'
+                                    src={
+                                        props?.dataBooking?.profile_img
+                                        ? 
+                                        'https://www.mydesa.my/v2/' + props?.dataBooking?.profile_img
+                                        : 
+                                        'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg'
+                                    }
+                                    alt=''
+                                />
+                                </span>
+                            </Link>
+                            <div className='flex flex-col text-xs'>
+                                <h4>{props.dataBooking.name}</h4>
+                                <h5>{props.dataBooking.email}</h5>
+                                <h5>{props.dataBooking.depression}</h5>
+                                <h5>{props.dataBooking.mobileno}</h5>
+                                <h5>{props.dataBooking.anxiety}</h5>
+                                <h5>{props.dataBooking.stress}</h5>
+                                <h5>{props.dataBooking.problem_type}</h5>
+                            </div>
+                            </div>
+                        
+                        </div>
                         <Formik
                             enableReinitialize
                             validateOnChange={false}
                             validateOnBlur={false}
                             initialValues={{                            
                                 appointments_id: props.dataBooking.appointments_id,
-                                clientname: props.dataBooking.name,
-                                depression: '14',
-                                anxiety : '14',
-                                stress: '15',
-                                status: '2',
-                                problem_type: props.dataBooking.problem_type,
                                 datetime: moment(props.dataBooking.date).format('YYYY-MM-DD'),
                                 time: props.dataBooking.time
                             }}
                             onSubmit={onSubmit}>
                             {(form) =>(
                                 <form className='space-y-6' onSubmit={form.handleSubmit}>
+                                    
                                     <div>
-                                    <label className='text-xs'>Client name</label>
                                     <input type="hidden" name="appointment_id" value={form.values.appointments_id} />
-                                    <input type='text' name='clientname' id='clientname' value={form.values.clientname} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' disabled/>
-                                    </div>
-
-                                    <div>
-                                    <label className='text-xs'>Depression Score</label>
-                                    <input type='text' name='depression' id='depression' value={form.values.depression} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' disabled />
-                                    </div>
-
-                                    <div>
-                                    <label className='text-xs'>Anxiety Score</label>
-                                    <input type='text' name='anxiety' id='anxiety' value={form.values.anxiety} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' disabled />
-                                    </div>
-
-                                    <div>
-                                    <label className='text-xs'>Stress Score</label>
-                                    <input type='text' name='stress' id='stress' value={form.values.stress} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' disabled />
-                                    </div>
-
-                                    <div>
-                                    <label className='text-xs'>Problem type</label>
-                                    <input type='text' name='problem_type' id='problem_type' value={form.values.problem_type} className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5' disabled/>
-                                    </div>
-
-                                    <div>
                                     <label className='text-xs'>Booking time </label>
                                         <div className='flex'>
                                             <input type='date' value={form.values.datetime} onChange={form.handleChange} onBlur={form.handleBlur} name='datetime' id='datetime' className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-1/2 p-2.5' required/>

@@ -128,6 +128,8 @@ const updateBooking = async (data_value) => {
       data: new_v,
       headers: headers
     });
+    console.log('newta',res);
+    return false;
     return res;
   } catch(err){
       console.log('err', err);

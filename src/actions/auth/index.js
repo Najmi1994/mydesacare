@@ -20,7 +20,11 @@ const useLogin = () => {
         sessionStorage.setItem("lvl",data.data.data.level_access);
         window.location.href = '/superadmin';
       }else{
-        window.location.href = '/dashboard';
+        if(!data.data.data.age || !data.data.data.phone_no || !data.data.data.marital_status || !data.data.data.expertise || !data.data.data.experience){
+          window.location.href = '/settings';
+        }else{
+          window.location.href = '/dashboard';
+        }
       }
       // router.push("/dashboard");
     },

@@ -90,6 +90,7 @@ export default function AccountInformation() {
                   age: data?.data.profile.age,
                   phone_no: data?.data.profile.phone_no,
                   experience: data?.data.profile.experience,
+                  period_problem: data?.data.profile.period_problem,
                   expertise: data?.data.profile.expertise
 
                 }}
@@ -192,10 +193,10 @@ export default function AccountInformation() {
                             value={form.values.marital_status}
                             className="w-full p-2.5 my-1 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option >Select Marital Status</option>
-                            <option value="Single">Single</option>
-                            <option value="Married">Married</option>
-                            <option value="Divorced">Divorced</option>
-                            <option value="Cohabitting">Cohabitting</option>
+                            <option value="1">Single</option>
+                            <option value="2">Married</option>
+                            <option value="3">Divorced</option>
+                            <option value="4">Cohabitting</option>
                           </select>
                       </div>
                     </div>
@@ -246,7 +247,7 @@ export default function AccountInformation() {
                     </div>
 
                     <div className="py-4">
-                      <div className="mb-6 py-4 px-2">
+                      <div className="mb-6 px-2">
                         <div className=" w-full">
                           <label htmlFor="tabs" className="text-xs font-semibold">
                             Year of Experience
@@ -258,13 +259,29 @@ export default function AccountInformation() {
                             value={form.values.experience}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option >Select Year of Experience</option>
-                            <option value="Beginer">1-3 Years</option>
-                            <option value="Ameatur">1-6 Years</option>
-                            <option value="Good">1-10 Years</option>
+                            <option value="1">Less than 10 years</option>
+                            <option value="2">More than 10 years</option>
                           </select>
                         </div>
                       </div>
-                      <div className="mb-6 py-4 px-2">
+                      <div className="mb-6 px-2">
+                        <div className=" w-full">
+                          <label htmlFor="tabs" className="text-xs font-semibold">
+                            Preferred Problem Duration
+                          </label>
+                          <select
+                            id="tabs"
+                            name="experience"
+                            onChange={form.handleChange}
+                            value={form.values.period_problem}
+                            className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <option >Select Year of Experience</option>
+                            <option value="1">Less than 1 years</option>
+                            <option value="2">More than 1 years</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div className="mb-6 px-2">
                         <div className=" w-full">
                           <label htmlFor="tabs" className="text-xs font-semibold">
                             Expertise Category
@@ -276,12 +293,12 @@ export default function AccountInformation() {
                             value={form.values.expertise}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                             <option >Select Expertise</option>
-                            <option value="Personal">Personal</option>
-                            <option value="Family">Family</option>
-                            <option value="Career">Career</option>
-                            <option value="Mental Health">Mental Health</option>
-                            <option value="Addiction">Addiction</option>
-                            <option value="Crime">Crime</option>
+                            <option value="1">Personal</option>
+                            <option value="2">Family</option>
+                            <option value="3">Career</option>
+                            <option value="4">Mental Health</option>
+                            <option value="5">Addiction</option>
+                            <option value="6">Crime</option>
                           </select>
                         </div>
                       </div></div>

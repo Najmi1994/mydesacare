@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-no-target-blank */
 import Admin2 from "src/layouts/Admin2";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useTranslation } from "next-i18next";
 // import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
@@ -22,6 +22,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { purple } from '@mui/material/colors';
+
+import { useProfile } from "src/actions/settings";
 
 const theme = createTheme({
   palette: {
@@ -72,6 +74,20 @@ function a11yProps(index) {
   };
 }
 export default function Appointments() {
+  const { data:profile, isFetching:proFetch } = useProfile();
+
+  function checking_profile(data){
+    if(!data.data.profile.age || !data.data.profile.phone_no || !data.data.profile.marital_status || !data.data.profile.expertise || !data.data.profile.experience){
+      window.location.href = '/settings';
+    }
+  }
+
+  useEffect(() => {
+    if(!proFetch){
+      checking_profile(profile);
+    }
+  }); 
+
   const [showModal, setShowModal] = useState(false);
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {

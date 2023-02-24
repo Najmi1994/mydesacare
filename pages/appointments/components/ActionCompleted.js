@@ -45,7 +45,7 @@ export default function ActionCompleted(props) {
         // props.onHandlerModal(false, []);
     }
 
-    const [message, setMessage] = useState('');
+    // const [message, setMessage] = useState('');
 
     // stepper timeline
     const [activeStep, setActiveStep] = React.useState(0);
@@ -66,22 +66,38 @@ export default function ActionCompleted(props) {
         setActiveStep(i);
     }
 
-    async function setAddress(id){
+    // async function setAddress(id){
       
+    //     if(message){
+    //         handleNext();
+    //         const new_data = {};
+    //         new_data['id'] = id;
+    //         new_data['note'] = message
+    //         await setSessionUpdate(new_data);
+    //     }else{
+    //         console.log('nodata','notda');
+    //     }
+    //     // console.log('data baru', new_data);
+    // }
+
+    async function handleMessageChange(message,id,length){
+        
         if(message){
+            let len2 = message
             handleNext();
             const new_data = {};
             new_data['id'] = id;
-            new_data['note'] = message
-            await setSessionUpdate(new_data);
+            new_data['note'] = message;
+
+            await setSessionUpdate(new_data, {
+                onSuccess: (data) => {
+                    setChange(len2)
+                    // console.log('success', data);
+                }
+            });
         }else{
             console.log('nodata','notda');
         }
-        // console.log('data baru', new_data);
-    }
-
-    const handleMessageChange = event => {
-        setMessage(event.target.value);
     };
    
   return (
@@ -104,7 +120,13 @@ export default function ActionCompleted(props) {
                     <span className='bg-gray-200 flex items-center justify-center border w-10 h-10  rounded-full'>
                     <img
                         className='rounded-full'
-                        src='/img/team-1-800x800.jpg'
+                        src={
+                            props?.dataBooking?.profile_img
+                            ? 
+                            'https://www.mydesa.my/v2/' + props?.dataBooking?.profile_img
+                            : 
+                            'https://static.vecteezy.com/system/resources/thumbnails/003/337/584/small/default-avatar-photo-placeholder-profile-icon-vector.jpg'
+                        }
                         alt=''
                     />
                     </span>
@@ -138,13 +160,17 @@ export default function ActionCompleted(props) {
                             </StepLabel>
                             <StepContent>
                             <Typography>
-                                <textarea rows="6" onChange={handleMessageChange} className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>{step.description}</textarea>
+                                <textarea rows="6" onChange={(e) => e.target.value} onBlur={(e) => handleMessageChange(e.target.value,step.id)} className='block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'>{step.description}</textarea>
                             </Typography>
                             <Box sx={{ mb: 2 }}>
-                                <div>
+                                {/* <div>
                                     <Button variant='contained' onClick={() => setAddress(step.id)} sx={{mt: 1, mr: 1, color: 'purple', '&:hover': {  backgroundColor: '#694BF1', },}}> Add note
                                     </Button>
-                                </div>
+                                </div> */}
+                                {/* <div>
+                                    <Button variant='contained' onClick={() => setAddress(step.id)} sx={{mt: 1, mr: 1, color: 'purple', '&:hover': {  backgroundColor: '#694BF1', },}}> Delete note
+                                    </Button>
+                                </div> */}
                             </Box>
                             </StepContent>
                         </Step>

@@ -6,19 +6,34 @@ import { authAtom } from 'src/recoil/auth';
 import { useCountAppointment } from 'src/actions/appointment';
 import moment from 'moment';
 import { CircularProgress } from '@mui/material';
+import { useProfile } from "src/actions/settings";
+import { array } from 'yup';
 
 export default function Dashboard() {
   const data = useRecoilValue(authAtom);
   const { data: appoint, isFetching } = useCountAppointment();
+  
+  const { data:profile, isFetching:proFetch } = useProfile();
 
+  function checking_profile(data){
+    if(!data.data.profile.age || !data.data.profile.phone_no || !data.data.profile.marital_status || !data.data.profile.expertise || !data.data.profile.experience){
+      window.location.href = '/settings';
+    }
+  }
+
+  
+  useEffect(() => {
+    if(!proFetch){
+      checking_profile(profile);
+    }
+  }); 
+  
   const [showModal, setShowModal] = useState(false);
   // const [chartLine, setDataChart] = useState();
   // console.log('test', data?.data.token);
   // return false;
   // console.log(chartLine);
-  // useEffect(() => {
-  //   setDataChart(appoint?.line?.line_appointment);
-  // }); //
+  
 
   return (
     <div className='px-4 md:px-10 mx-auto w-full'>
@@ -57,10 +72,9 @@ export default function Dashboard() {
                         </div>
                         <div className='flex flex-col pl-4 ml-4 border-l border-green-400'>
                           <span className='font-light'>
-                            {appoint?.appointment.value_appointment[0]
-                              .problem_type
-                              ? appoint?.appointment.value_appointment[0]
-                                  .problem_type
+                            
+                            {appoint?.appointment.value_appointment[0].problem_type
+                              ? appoint?.appointment.value_appointment[0].problem_type
                               : ''}
                           </span>
                           <span className='font-semibold'>
