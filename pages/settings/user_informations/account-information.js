@@ -90,7 +90,7 @@ export default function AccountInformation() {
                   age: data?.data.profile.age,
                   phone_no: data?.data.profile.phone_no,
                   experience: data?.data.profile.experience,
-                  period_problem: data?.data.profile.period_problem,
+                  period_problem: data?.data.profile.preferred_problem_duration,
                   expertise: data?.data.profile.expertise
 
                 }}
@@ -271,7 +271,7 @@ export default function AccountInformation() {
                           </label>
                           <select
                             id="tabs"
-                            name="experience"
+                            name="period_problem"
                             onChange={form.handleChange}
                             value={form.values.period_problem}
                             className="w-full my-2 bg-gray-50 border border-gray-300 text-gray-900 sm:text-xs rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
